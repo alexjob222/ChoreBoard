@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ChoreBoard.Data
 {
@@ -16,6 +17,10 @@ namespace ChoreBoard.Data
         public Guid Guid { get; set; } = Guid.NewGuid();
 
         [Required]
+        public int CategoryId { get; set; }
+
+        [Required]
+        [ForeignKey(nameof(CategoryId))]
         public ChoreCategory Category { get; set; }
 
         [Required]
