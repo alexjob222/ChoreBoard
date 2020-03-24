@@ -5,14 +5,7 @@ using System.Text;
 
 namespace ChoreBoard.ViewModels
 {
-    public class ChoreViewModel
+    public class NewChoreViewModel : Base.BaseViewModel
     {
-    }
-
-    public enum RolloverType
-    {
-        None,
-        Automatic,
-        OnCompletion,
     }
 }

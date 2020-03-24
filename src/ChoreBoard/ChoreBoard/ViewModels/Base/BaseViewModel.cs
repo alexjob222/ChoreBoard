@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ChoreBoard.ViewModels.Base
 {
-    abstract class BaseViewModel : BindingObject
+    public abstract class BaseViewModel : BindingObject
     {
         private string _title;
 
@@ -15,7 +15,7 @@ namespace ChoreBoard.ViewModels.Base
         }
     }
 
-    abstract class BaseViewModel<TModel> : BaseViewModel
+    public abstract class BaseViewModel<TModel> : BaseViewModel
     {
         private TModel _model;
 

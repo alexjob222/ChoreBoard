@@ -3,9 +3,19 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:system="clr-namespace:System;assembly=netstandard"
              mc:Ignorable="d"
              x:Class="ChoreBoard.App">
     <Application.Resources>
-        <ResourceDictionary Source="Resources/Themes/LightTheme.xaml"/>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Themes/LightTheme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            
+            <!-- Font Sizes -->
+            <system:Double x:Key="SmallFontSize">12</system:Double>
+            <system:Double x:Key="MediumFontSize">15</system:Double>
+            <system:Double x:Key="LargeFontSize">18</system:Double>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
