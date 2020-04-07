@@ -8,7 +8,7 @@ namespace ChoreBoard.Data
     public class RecurrencePattern
     {
         [Key]
-        public int PatternId { get; set; }
+        public int RecurrenceId { get; set; }
 
         [Required]
         public int ChoreId { get; set; }

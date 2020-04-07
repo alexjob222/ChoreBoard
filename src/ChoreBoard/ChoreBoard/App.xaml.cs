@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ChoreBoard.Core;
+using ChoreBoard.Views;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,7 +12,9 @@ namespace ChoreBoard
         {
             InitializeComponent();
 
-            MainPage = new Views.MainPage();
+            DependencyService.Register<DateTimeProvider>();
+
+            MainPage = new MainPage();
         }
 
         protected override void OnStart()

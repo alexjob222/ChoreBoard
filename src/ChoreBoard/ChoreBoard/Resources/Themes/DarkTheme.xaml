@@ -7,4 +7,5 @@
              x:Class="ChoreBoard.Resources.Themes.DarkTheme">
     <Color x:Key="PageBackgroundColor">#262020</Color>
     <Color x:Key="FontColor">#EEEEEE</Color>
+    <Color x:Key="ActionBtnColor">#192f7a</Color>
 </ResourceDictionary>

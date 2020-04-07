@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using ChoreBoard.Utility.Extensions;
 using Xunit;
 
@@ -56,6 +57,30 @@ namespace ChoreBoard.Utility.Tests.Extensions
                 bool result = list.IsNullOrEmpty();
 
                 Assert.False(result);
+            }
+        }
+
+        public class EmptyIfNullMethod
+        {
+            [Fact]
+            public void ReturnsEmptyEnumerableWhenArgumentIsNull()
+            {
+                IEnumerable<int> enumerable = null;
+
+                var result = enumerable.EmptyIfNull();
+
+                Assert.NotNull(result);
+                Assert.Empty(result);
+            }
+
+            [Fact]
+            public void ReturnsArgumentWhenItIsNotNull()
+            {
+                var expected = new List<int> { 1 };
+
+                var actual = expected.EmptyIfNull();
+
+                Assert.Equal(expected, actual);
             }
         }
     }

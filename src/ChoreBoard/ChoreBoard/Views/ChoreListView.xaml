@@ -4,12 +4,53 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="ChoreBoard.Views.ChoreListView">
+             x:Class="ChoreBoard.Views.ChoreListView"
+             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <AbsoluteLayout>
+            <!--<Grid AbsoluteLayout.LayoutBounds="0,0,1,1"
+                  AbsoluteLayout.LayoutFlags="All">
+                
+            </Grid>-->
+            <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1"
+                         AbsoluteLayout.LayoutFlags="All">
+                <ListView ItemsSource="{Binding Chores}"
+                          VerticalOptions="FillAndExpand"
+                          HasUnevenRows="True"
+                          IsPullToRefreshEnabled="True"
+                          CachingStrategy="RecycleElement">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Padding="10">
+                                    <Label Text="{Binding Name}"
+                                           FontSize="{StaticResource LargeFontSize}"/>
+                                    <Label Text="{Binding Description}"
+                                           FontSize="{StaticResource MediumFontSize}"/>
+                                    <Label Text="{Binding Notes}"
+                                           FontSize="{StaticResource SmallFontSize}"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            
+            <Button Style="{StaticResource FloatingActionBtn}"
+                    AbsoluteLayout.LayoutBounds="1, 1, AutoSize, AutoSize"
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+                    ImageSource="plus_white.png"
+                    IsVisible="False"
+                    x:Name="btnTest"
+                    WidthRequest="40"
+                    HeightRequest="40"/>
+
+            <Button Style="{StaticResource FloatingActionBtn}"
+                    AbsoluteLayout.LayoutBounds="1, 1, AutoSize, AutoSize"
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+                    ImageSource="plus_white.png"
+                    x:Name="btnAction"
+                    Clicked="btnAction_Clicked"/>
+        </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>

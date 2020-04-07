@@ -34,6 +34,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\ChoreBoard.Core\ChoreBoard.Core.csproj" />
+    <ProjectReference Include="..\..\ChoreBoard.Data\ChoreBoard.Data.csproj" />
     <ProjectReference Include="..\..\ChoreBoard.Utility\ChoreBoard.Utility.csproj" />
   </ItemGroup>
 </Project>

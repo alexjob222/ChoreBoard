@@ -132,4 +132,7 @@
       <Name>ChoreBoard</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\plus_white.png" />
+  </ItemGroup>
 </Project>

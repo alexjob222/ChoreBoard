@@ -30,5 +30,12 @@ namespace ChoreBoard.Data
         public DateTime StartDate { get; set; }
 
         public string Description { get; set; }
+
+        public string Notes { get; set; }
+
+        public int? RecurrenceId { get; set; }
+
+        [ForeignKey(nameof(RecurrenceId))]
+        public RecurrencePattern RecurrencePattern { get; set; }
     }
 }

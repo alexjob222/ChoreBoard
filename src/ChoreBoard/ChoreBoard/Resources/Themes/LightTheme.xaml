@@ -7,4 +7,5 @@
              x:Class="ChoreBoard.Resources.Themes.LightTheme">
     <Color x:Key="PageBackgroundColor">#FFFFFF</Color>
     <Color x:Key="FontColor">#000000</Color>
+    <Color x:Key="ActionBtnColor">#2c60fc</Color>
 </ResourceDictionary>
