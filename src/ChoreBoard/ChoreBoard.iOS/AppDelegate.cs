@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ChoreBoard.Setup;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -23,7 +24,7 @@ namespace ChoreBoard.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
-            LoadApplication(new App());
+            LoadApplication(new App(new AppSetup()));
 
             return base.FinishedLaunching(app, options);
         }

@@ -13,16 +13,13 @@ namespace ChoreBoard.ViewModels.Base
             get => _title;
             set => SetProperty(ref _title, value);
         }
-    }
 
-    public abstract class BaseViewModel<TModel> : BaseViewModel
-    {
-        private TModel _model;
+        private bool _isBusy;
 
-        public TModel Model
+        public bool IsBusy
         {
-            get => _model;
-            set => SetProperty(ref _model, value);
+            get => _isBusy;
+            set => SetProperty(ref _isBusy, value);
         }
     }
 }

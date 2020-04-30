@@ -1,6 +1,7 @@
 ﻿using ChoreBoard.Core;
+using ChoreBoard.Setup;
+using ChoreBoard.Utility;
 using ChoreBoard.Views;
-using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -8,11 +9,13 @@ namespace ChoreBoard
 {
     public partial class App : Application
     {
-        public App()
+        public App(AppSetup appSetup)
         {
+            Ensure.ArgumentNotNull(appSetup, nameof(appSetup));
+
             InitializeComponent();
 
-            DependencyService.Register<DateTimeProvider>();
+            Dependencies.Container = appSetup.CreateContainer();
 
             MainPage = new MainPage();
         }

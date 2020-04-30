@@ -1,11 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             x:Class="ChoreBoard.Views.ChoreListView"
-             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core">
+<base:BaseView xmlns="http://xamarin.com/schemas/2014/forms"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+               xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+               xmlns:base="clr-namespace:ChoreBoard.Views.Base"
+               xmlns:vm="clr-namespace:ChoreBoard.ViewModels"
+               mc:Ignorable="d"
+               x:Class="ChoreBoard.Views.ChoreListView"
+               x:TypeArguments="vm:ChoreListViewModel"
+               xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core">
     <ContentPage.Content>
         <AbsoluteLayout>
             <!--<Grid AbsoluteLayout.LayoutBounds="0,0,1,1"
@@ -35,22 +38,12 @@
                     </ListView.ItemTemplate>
                 </ListView>
             </StackLayout>
-            
-            <Button Style="{StaticResource FloatingActionBtn}"
-                    AbsoluteLayout.LayoutBounds="1, 1, AutoSize, AutoSize"
-                    AbsoluteLayout.LayoutFlags="PositionProportional"
-                    ImageSource="plus_white.png"
-                    IsVisible="False"
-                    x:Name="btnTest"
-                    WidthRequest="40"
-                    HeightRequest="40"/>
 
             <Button Style="{StaticResource FloatingActionBtn}"
                     AbsoluteLayout.LayoutBounds="1, 1, AutoSize, AutoSize"
                     AbsoluteLayout.LayoutFlags="PositionProportional"
-                    ImageSource="plus_white.png"
-                    x:Name="btnAction"
-                    Clicked="btnAction_Clicked"/>
+                    ImageSource="plus_24.png"
+                    Clicked="NewChoreButton_Clicked"/>
         </AbsoluteLayout>
     </ContentPage.Content>
-</ContentPage>
+</base:BaseView>
