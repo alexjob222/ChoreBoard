@@ -38,6 +38,7 @@ namespace ChoreBoard.Setup
             builder.RegisterType<ChoreListViewModel>().AsSelf();
             builder.RegisterType<MenuViewModel>().AsSelf();
             builder.RegisterType<NewChoreViewModel>().AsSelf();
+            builder.RegisterType<RecurrenceEditorViewModel>().AsSelf();
         }
     }
 }

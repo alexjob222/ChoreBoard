@@ -14,44 +14,43 @@ namespace ChoreBoard.ViewModels
 {
     public class ChoreListViewModel : Base.BaseViewModel
     {
+        private ObservableCollection<Chore> _chores;
+
         private IDataService<Chore> _choreService;
 
         public ChoreListViewModel(IDataService<Chore> choreService)
         {
             _choreService = choreService;
 
+            Title = "ChoreBoard";
+
             Chores = new ObservableCollection<Chore>();
-            LoadChoresCommand = new Command(async () => await ExecuteLoadChoresCommand());
+            LoadChoresCommand = new Command(async () => await LoadChoresAsync());
         }
 
-        public ObservableCollection<Chore> Chores { get; private set; }
+        public ObservableCollection<Chore> Chores
+        { 
+            get => _chores;
+            private set => SetProperty(ref _chores, value);
+        }
 
         public ICommand LoadChoresCommand { get; }
 
-        private async Task ExecuteLoadChoresCommand()
+        public override Task LoadData()
         {
-            if (IsBusy)
+            if (Chores.IsNullOrEmpty())
             {
-                return;
+                return ExecuteIfNotBusyAsync(LoadChoresAsync);
             }
 
-            IsBusy = true;
+            return Task.CompletedTask;
+        }
 
-            try
-            {
-                Chores.Clear();
+        private async Task LoadChoresAsync()
+        {
+            var chores = await _choreService.GetItemsAsync(true);
 
-                var chores = await _choreService.GetItemsAsync(true);
-
-                foreach (var chore in chores)
-                {
-                    Chores.Add(chore);
-                }
-            }
-            finally
-            {
-                IsBusy = false;
-            }
+            Chores = new ObservableCollection<Chore>(chores);
         }
     }
 }

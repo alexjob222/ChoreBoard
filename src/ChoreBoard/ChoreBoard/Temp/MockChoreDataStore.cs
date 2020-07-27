@@ -30,7 +30,6 @@ namespace ChoreBoard.Temp
                         .Select(i => new Data.Chore
                         {
                             Name = $"Chore {i}",
-                            Description = $"This is the description for chore {i}",
                             Notes = $"If I had notes, this is where they would go. That's why I added the field to the model"
                         }));
         }

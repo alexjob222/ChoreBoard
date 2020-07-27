@@ -17,5 +17,12 @@ namespace ChoreBoard.Views.Base
 
             BindingContext = ViewModel;
         }
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+
+            await ViewModel.LoadData();
+        }
     }
 }

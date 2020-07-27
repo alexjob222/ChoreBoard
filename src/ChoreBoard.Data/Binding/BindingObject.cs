@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace ChoreBoard.ViewModels.Base
+namespace ChoreBoard.Data.Binding
 {
     public class BindingObject : INotifyPropertyChanged
     {

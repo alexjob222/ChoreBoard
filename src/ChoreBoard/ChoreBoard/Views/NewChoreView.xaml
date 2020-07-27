@@ -9,14 +9,54 @@
                x:Class="ChoreBoard.Views.NewChoreView"
                x:TypeArguments="vm:NewChoreViewModel">
     <ContentPage.Content>
-        <StackLayout>
-            <Entry Text="{Binding Model.Name}"
+        <StackLayout Padding="20,10">
+            <Entry Text="{Binding Chore.Name}"
                    Placeholder="Chore Name"/>
-            <StackLayout Orientation="Horizontal">
-                <Picker ItemsSource="{Binding ChoreCategories}"/>
-            </StackLayout>
-            <Editor Text="{Binding Model.Description}"
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Picker ItemsSource="{Binding ChoreCategories}"
+                        ItemDisplayBinding="{Binding Name}"
+                        Title="Category"
+                        SelectedItem="{Binding Chore.Category, Mode=TwoWay}"
+                        Grid.Column="0"
+                        VerticalOptions="FillAndExpand"/>
+                <Button Margin="5,0,0,0"
+                        Grid.Column="1"
+                        Text="+"
+                        FontSize="{StaticResource LargeFontSize}"/>
+            </Grid>
+            <Editor Text="{Binding Chore.Notes}"
+                    Placeholder="Notes"
                     AutoSize="TextChanges"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="Start Date"
+                       Grid.Column="0"
+                       VerticalTextAlignment="Center"
+                       FontSize="{StaticResource MediumFontSize}"/>
+                <DatePicker Date="{Binding Chore.StartDate, Mode=TwoWay}"
+                            Grid.Column="1"/>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="Recurring"
+                       VerticalTextAlignment="Center"
+                       FontSize="{StaticResource MediumFontSize}"
+                       Grid.Column="0"/>
+                <StackLayout Grid.Column="1">
+                    <Switch IsToggled="{Binding IsRecurring, Mode=TwoWay}"/>
+                    <Label Text="Use converter to put text here about the recurring details"/>
+                </StackLayout>
+            </Grid>
         </StackLayout>
     </ContentPage.Content>
 </base:BaseView>

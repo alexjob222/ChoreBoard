@@ -18,7 +18,7 @@ namespace ChoreBoard.Utility.Extensions
         /// <summary>
         /// Returns an empty IEnumerable if the passed enumerable is null
         /// </summary>
-        /// <returns>An empty IEnumerable<T> if the passed enumerable is null, otherwise the passed enumerable</returns>
+        /// <returns>An empty <see cref="IEnumerable{T}"/> if the passed enumerable is null, otherwise the passed enumerable</returns>
         public static IEnumerable<T> EmptyIfNull<T>(this IEnumerable<T> enumerable)
         {
             return enumerable ?? Enumerable.Empty<T>();

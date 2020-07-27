@@ -1,5 +1,4 @@
-﻿using ChoreBoard.Utility.Extensions;
-using ChoreBoard.ViewModels;
+﻿using ChoreBoard.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +11,9 @@ using Xamarin.Forms.Xaml;
 namespace ChoreBoard.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class NewChoreView : Base.BaseView<NewChoreViewModel>
+    public partial class RecurrenceEditorView : Base.BaseView<RecurrenceEditorViewModel>
     {
-        public NewChoreView()
+        public RecurrenceEditorView()
         {
             InitializeComponent();
         }

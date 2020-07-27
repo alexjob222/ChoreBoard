@@ -29,8 +29,6 @@ namespace ChoreBoard.Data
         [Required]
         public DateTime StartDate { get; set; }
 
-        public string Description { get; set; }
-
         public string Notes { get; set; }
 
         public int? RecurrenceId { get; set; }

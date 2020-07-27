@@ -11,17 +11,14 @@
                xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core">
     <ContentPage.Content>
         <AbsoluteLayout>
-            <!--<Grid AbsoluteLayout.LayoutBounds="0,0,1,1"
-                  AbsoluteLayout.LayoutFlags="All">
-                
-            </Grid>-->
             <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1"
                          AbsoluteLayout.LayoutFlags="All">
                 <ListView ItemsSource="{Binding Chores}"
                           VerticalOptions="FillAndExpand"
                           HasUnevenRows="True"
                           IsPullToRefreshEnabled="True"
-                          CachingStrategy="RecycleElement">
+                          CachingStrategy="RecycleElement"
+                          RefreshCommand="{Binding LoadChoresCommand}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>

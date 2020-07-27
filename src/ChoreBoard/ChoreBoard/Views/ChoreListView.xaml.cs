@@ -19,16 +19,6 @@ namespace ChoreBoard.Views
             InitializeComponent();
         }
 
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-
-            if (ViewModel.Chores.IsNullOrEmpty())
-            {
-                ViewModel.LoadChoresCommand.Execute(null);
-            }
-        }
-
         private async void NewChoreButton_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new NewChoreView());
