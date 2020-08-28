@@ -1,11 +1,12 @@
-﻿using System;
+﻿using ChoreBoard.Core.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ChoreBoard.Data
 {
-    public class RecurrencePattern
+    internal class ChoreRecurrence
     {
         [Key]
         public int RecurrenceId { get; set; }

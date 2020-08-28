@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ChoreBoard.Core.Interfaces
+namespace ChoreBoard.Core.Providers
 {
     public interface IDateTimeProvider
     {

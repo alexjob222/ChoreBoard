@@ -2,7 +2,7 @@
 using System;
 using Xunit;
 
-namespace ChoreBoard.Utility.Tests
+namespace ChoreBoard.Tests.Utility
 {
     public class EnsureTests
     {

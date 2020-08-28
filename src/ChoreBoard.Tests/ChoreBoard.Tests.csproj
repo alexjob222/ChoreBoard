@@ -1,9 +1,13 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
 
     <IsPackable>false</IsPackable>
+
+    <AssemblyName>ChoreBoard.Tests</AssemblyName>
+
+    <RootNamespace>ChoreBoard.Tests</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -20,6 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ChoreBoard.Core\ChoreBoard.Core.csproj" />
     <ProjectReference Include="..\ChoreBoard.Utility\ChoreBoard.Utility.csproj" />
   </ItemGroup>
 

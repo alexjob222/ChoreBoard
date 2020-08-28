@@ -1,5 +1,6 @@
-﻿using ChoreBoard.Data;
+﻿using ChoreBoard.Core.Models;
 using ChoreBoard.Data.DataAccess;
+using ChoreBoard.Utility;
 using ChoreBoard.Utility.Extensions;
 using System;
 using System.Collections.Generic;
@@ -14,25 +15,34 @@ namespace ChoreBoard.ViewModels
 {
     public class NewChoreViewModel : Base.BaseViewModel
     {
-        private ObservableCollection<ChoreCategory> _choreCategories;
+        private ObservableCollection<IChoreCategory> _choreCategories;
         private bool _isRecurring;
 
-        private IDataService<ChoreCategory> _categoryService;
+        private IDataService<IChoreCategory> _categoryService;
 
-        public NewChoreViewModel(IDataService<ChoreCategory> categoryService)
+        public NewChoreViewModel(IDataService<IChoreCategory> categoryService)
         {
             _categoryService = categoryService;
 
             Title = "New Chore";
             Chore = new Chore() { Name = "Alex's chore" };
-            ChoreCategories = new ObservableCollection<ChoreCategory>();
+
+            ChoreCategories = new ObservableCollection<IChoreCategory>();
+            RolloverTypes = EnumHelper.GetValues<RolloverType>();
+            RolloverFromOptions = EnumHelper.GetValues<RolloverFrom>();
 
             LoadCategoriesCommand = new Command(async () => await LoadCategoriesAsync());
         }
 
-        public Chore Chore { get; }
+        public IChore Chore { get; }
 
-        public ObservableCollection<ChoreCategory> ChoreCategories
+        public ICommand LoadCategoriesCommand { get; }
+
+        public IEnumerable<RolloverType> RolloverTypes { get; }
+
+        public IEnumerable<RolloverFrom> RolloverFromOptions { get; }
+
+        public ObservableCollection<IChoreCategory> ChoreCategories
         {
             get => _choreCategories;
             private set => SetProperty(ref _choreCategories, value);
@@ -43,8 +53,6 @@ namespace ChoreBoard.ViewModels
             get => _isRecurring;
             set => SetProperty(ref _isRecurring, value);
         }
-
-        public ICommand LoadCategoriesCommand { get; }
 
         public override Task LoadData()
         {
@@ -60,7 +68,7 @@ namespace ChoreBoard.ViewModels
         {
             var categories = await _categoryService.GetItemsAsync(true);
 
-            ChoreCategories = new ObservableCollection<ChoreCategory>(categories);
+            ChoreCategories = new ObservableCollection<IChoreCategory>(categories);
         }
     }
 }

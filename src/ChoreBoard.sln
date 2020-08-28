@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChoreBoard", "ChoreBoard\Ch
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChoreBoard.Utility", "ChoreBoard.Utility\ChoreBoard.Utility.csproj", "{6AE4E42C-5AA8-4134-B9B1-4021B76C095B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChoreBoard.Utility.Tests", "ChoreBoard.Utility.Tests\ChoreBoard.Utility.Tests.csproj", "{1BE03E8E-3E49-420B-8FB7-717A5377E253}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChoreBoard.Tests", "ChoreBoard.Tests\ChoreBoard.Tests.csproj", "{1BE03E8E-3E49-420B-8FB7-717A5377E253}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChoreBoard.Data", "ChoreBoard.Data\ChoreBoard.Data.csproj", "{7850BA6D-FE44-4C69-A4F6-53B1B76E46A8}"
 EndProject

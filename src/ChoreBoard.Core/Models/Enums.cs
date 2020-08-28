@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ChoreBoard.Data
+namespace ChoreBoard.Core.Models
 {
     public enum ActionType
     {

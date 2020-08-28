@@ -4,7 +4,7 @@ using System.Linq;
 using ChoreBoard.Utility.Extensions;
 using Xunit;
 
-namespace ChoreBoard.Utility.Tests.Extensions
+namespace ChoreBoard.Tests.Utility.Extensions
 {
     public class EnumerableExtensionsTests
     {

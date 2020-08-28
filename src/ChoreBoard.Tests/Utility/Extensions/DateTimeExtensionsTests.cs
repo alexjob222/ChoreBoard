@@ -2,7 +2,7 @@
 using System;
 using Xunit;
 
-namespace ChoreBoard.Utility.Tests.Extensions
+namespace ChoreBoard.Tests.Utility.Extensions
 {
     public class DateTimeExtensionsTests
     {

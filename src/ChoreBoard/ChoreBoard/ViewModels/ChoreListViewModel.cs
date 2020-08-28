@@ -1,4 +1,4 @@
-﻿using ChoreBoard.Data;
+﻿using ChoreBoard.Core.Models;
 using ChoreBoard.Data.DataAccess;
 using ChoreBoard.Utility.Extensions;
 using System;
@@ -14,21 +14,21 @@ namespace ChoreBoard.ViewModels
 {
     public class ChoreListViewModel : Base.BaseViewModel
     {
-        private ObservableCollection<Chore> _chores;
+        private ObservableCollection<IChore> _chores;
 
-        private IDataService<Chore> _choreService;
+        private IDataService<IChore> _choreService;
 
-        public ChoreListViewModel(IDataService<Chore> choreService)
+        public ChoreListViewModel(IDataService<IChore> choreService)
         {
             _choreService = choreService;
 
             Title = "ChoreBoard";
 
-            Chores = new ObservableCollection<Chore>();
+            Chores = new ObservableCollection<IChore>();
             LoadChoresCommand = new Command(async () => await LoadChoresAsync());
         }
 
-        public ObservableCollection<Chore> Chores
+        public ObservableCollection<IChore> Chores
         { 
             get => _chores;
             private set => SetProperty(ref _chores, value);
@@ -50,7 +50,7 @@ namespace ChoreBoard.ViewModels
         {
             var chores = await _choreService.GetItemsAsync(true);
 
-            Chores = new ObservableCollection<Chore>(chores);
+            Chores = new ObservableCollection<IChore>(chores);
         }
     }
 }

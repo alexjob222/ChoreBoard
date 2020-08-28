@@ -1,5 +1,5 @@
 ﻿using ChoreBoard.Data.DataAccess;
-using ChoreBoard.Data;
+using ChoreBoard.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -7,9 +7,9 @@ using System.Linq;
 
 namespace ChoreBoard.Temp
 {
-    class MockChoreDataStore : IDataService<Chore>
+    class MockChoreDataStore : IDataService<IChore>
     {
-        public Task<bool> AddItemAsync(Chore item)
+        public Task<bool> AddItemAsync(IChore item)
         {
             throw new NotImplementedException();
         }
@@ -19,22 +19,22 @@ namespace ChoreBoard.Temp
             throw new NotImplementedException();
         }
 
-        public Task<Chore> GetItemAsync(int id)
+        public Task<IChore> GetItemAsync(int id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<Chore>> GetItemsAsync(bool forceRefresh = false)
+        public Task<IEnumerable<IChore>> GetItemsAsync(bool forceRefresh = false)
         {
             return Task.FromResult(Enumerable.Range(1, 15)
-                        .Select(i => new Data.Chore
+                        .Select(i => (IChore)new Chore
                         {
                             Name = $"Chore {i}",
                             Notes = $"If I had notes, this is where they would go. That's why I added the field to the model"
                         }));
         }
 
-        public Task<bool> UpdateItemAsync(Chore item)
+        public Task<bool> UpdateItemAsync(IChore item)
         {
             throw new NotImplementedException();
         }

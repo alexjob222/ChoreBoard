@@ -1,4 +1,5 @@
-﻿using ChoreBoard.Data;
+﻿using ChoreBoard.Core.Models;
+using ChoreBoard.Utility;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,10 +11,12 @@ namespace ChoreBoard.ViewModels
     {
         public RecurrenceEditorViewModel()
         {
-            Recurrence = new RecurrencePattern();
+            FrequencyTypes = EnumHelper.GetValues<FrequencyType>();
         }
 
-        public RecurrencePattern Recurrence { get; }
+        public IRecurrencePattern Recurrence { get; }
+
+        public IEnumerable<FrequencyType> FrequencyTypes { get; }
 
         public override Task LoadData()
         {

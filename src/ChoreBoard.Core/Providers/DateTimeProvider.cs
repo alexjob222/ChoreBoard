@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ChoreBoard.Core
+namespace ChoreBoard.Core.Providers
 {
-    public class DateTimeProvider : Interfaces.IDateTimeProvider
+    public class DateTimeProvider : IDateTimeProvider
     {
         public DateTime Now => DateTime.Now;
 

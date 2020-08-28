@@ -1,7 +1,7 @@
 ﻿using Autofac;
 using ChoreBoard.Core;
-using ChoreBoard.Core.Interfaces;
-using ChoreBoard.Data;
+using ChoreBoard.Core.Providers;
+using ChoreBoard.Core.Models;
 using ChoreBoard.Data.DataAccess;
 using ChoreBoard.Temp;
 using ChoreBoard.ViewModels;
@@ -29,16 +29,17 @@ namespace ChoreBoard.Setup
         private void RegisterInterfaces(ContainerBuilder builder)
         {
             builder.RegisterType<DateTimeProvider>().As<IDateTimeProvider>();
-            builder.RegisterType<MockChoreDataStore>().As<IDataService<Chore>>();
-            builder.RegisterType<MockCategoryDataStore>().As<IDataService<ChoreCategory>>();
+            builder.RegisterType<MockChoreDataStore>().As<IDataService<IChore>>();
+            builder.RegisterType<MockCategoryDataStore>().As<IDataService<IChoreCategory>>();
         }
 
         private void RegisterViewModels(ContainerBuilder builder)
         {
-            builder.RegisterType<ChoreListViewModel>().AsSelf();
-            builder.RegisterType<MenuViewModel>().AsSelf();
-            builder.RegisterType<NewChoreViewModel>().AsSelf();
-            builder.RegisterType<RecurrenceEditorViewModel>().AsSelf();
+            var viewModelType = typeof(MenuViewModel);
+
+            builder.RegisterAssemblyTypes(viewModelType.Assembly)
+                   .Where(type => type.Namespace == viewModelType.Namespace)
+                   .AsSelf();
         }
     }
 }

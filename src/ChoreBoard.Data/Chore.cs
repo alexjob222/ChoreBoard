@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ChoreBoard.Data
 {
-    public class Chore
+    internal class Chore
     {
         [Key]
         public int ChoreId { get; set; }
@@ -14,7 +14,7 @@ namespace ChoreBoard.Data
         public DateTime CreatedDate { get; set; }
 
         [Required]
-        public Guid Guid { get; set; } = Guid.NewGuid();
+        public Guid Guid { get; set; }
 
         [Required]
         public int CategoryId { get; set; }
@@ -34,6 +34,6 @@ namespace ChoreBoard.Data
         public int? RecurrenceId { get; set; }
 
         [ForeignKey(nameof(RecurrenceId))]
-        public RecurrencePattern RecurrencePattern { get; set; }
+        public ChoreRecurrence RecurrencePattern { get; set; }
     }
 }
