@@ -1,16 +1,15 @@
-﻿using ChoreBoard.Core.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
-namespace ChoreBoard.Data
+namespace ChoreBoard.Data.Database.Tables
 {
-    internal class ChoreHistory
+    internal class SuspendedChore
     {
         [Key]
-        public int HistoryId { get; set; }
+        public int SuspensionId { get; set; }
 
         [Required]
         public int ChoreId { get; set; }
@@ -20,12 +19,8 @@ namespace ChoreBoard.Data
         public Chore Chore { get; set; }
 
         [Required]
-        public ActionType Action { get; set; }
+        public DateTime SuspendStartDateUtc { get; set; }
 
-        [Required]
-        public DateTime ActionDate { get; set; }
-
-        [Required]
-        public DateTime DueDate { get; set; }
+        public DateTime? SuspendEndDateUtc { get; set; }
     }
 }

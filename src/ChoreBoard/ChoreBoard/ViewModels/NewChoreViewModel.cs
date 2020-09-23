@@ -18,7 +18,7 @@ namespace ChoreBoard.ViewModels
         private ObservableCollection<IChoreCategory> _choreCategories;
         private bool _isRecurring;
 
-        private IDataService<IChoreCategory> _categoryService;
+        private readonly IDataService<IChoreCategory> _categoryService;
 
         public NewChoreViewModel(IDataService<IChoreCategory> categoryService)
         {

@@ -6,7 +6,7 @@ namespace ChoreBoard.Core.Models
 {
     public interface IRecurrencePattern
     {
-        FrequencyType FrequencyType { get; set; }
+        FrequencyType FrequencyType { get; }
 
         int FrequencyInterval { get; set; }
 

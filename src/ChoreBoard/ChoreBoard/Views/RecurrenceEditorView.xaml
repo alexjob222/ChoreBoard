@@ -8,14 +8,29 @@
                mc:Ignorable="d"
                x:Class="ChoreBoard.Views.RecurrenceEditorView"
                x:TypeArguments="vm:RecurrenceEditorViewModel">
+    <base:BaseView.Resources>
+        <DataTemplate x:Key="DaysTemplate">
+            <Frame BorderColor="Gray"
+                   CornerRadius="10">
+                <Label Text="{Binding}"/>
+            </Frame>
+        </DataTemplate>
+    </base:BaseView.Resources>
+    
     <ContentPage.Content>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            
-            
+
+            <Picker ItemsSource="{Binding FrequencyTypes}"
+                    SelectedItem="{Binding SelectedFrequency, Mode=TwoWay}"/>
+            <CollectionView ItemsSource="{Binding DaysOfWeek}"
+                            SelectionMode="Multiple"
+                            SelectedItems="{Binding SelectedDays, Mode=TwoWay}"
+                            ItemTemplate="{StaticResource DaysTemplate}"
+                            ItemsLayout="HorizontalList"/>
         </Grid>
     </ContentPage.Content>
 </base:BaseView>

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace ChoreBoard.Data
+namespace ChoreBoard.Data.Database.Tables
 {
     internal class ChoreCategory
     {

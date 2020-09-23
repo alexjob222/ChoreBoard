@@ -22,15 +22,19 @@ namespace ChoreBoard.Setup
 
         protected virtual void RegisterDependencies(ContainerBuilder builder)
         {
-            RegisterInterfaces(builder);
+            RegisterCoreTypes(builder);
             RegisterViewModels(builder);
         }
 
-        private void RegisterInterfaces(ContainerBuilder builder)
+        private void RegisterCoreTypes(ContainerBuilder builder)
         {
             builder.RegisterType<DateTimeProvider>().As<IDateTimeProvider>();
             builder.RegisterType<MockChoreDataStore>().As<IDataService<IChore>>();
             builder.RegisterType<MockCategoryDataStore>().As<IDataService<IChoreCategory>>();
+
+            //Model interfaces
+            builder.RegisterType<Chore>().As<IChore>();
+            builder.RegisterType<ChoreCategory>().As<IChoreCategory>();
         }
 
         private void RegisterViewModels(ContainerBuilder builder)
